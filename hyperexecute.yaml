@@ -1,0 +1,70 @@
+---
+version: 0.1
+projectName: Playwright102AssessmentTS
+
+# ---------------------------------------------------------------
+# Matrix: Run tests in parallel on 2 browser/OS combinations
+# ---------------------------------------------------------------
+matrix:
+  os: [win, linux]
+  browser: [chromium, firefox]
+
+runson: ${matrix.os}
+
+framework:
+  name: playwright
+  version: latest
+
+# ---------------------------------------------------------------
+# Pre Steps & Dependency Caching
+# ---------------------------------------------------------------
+cacheKey: playwright-deps-v1
+cacheDirectories:
+  - node_modules
+
+pre:
+  - npm install
+
+# ---------------------------------------------------------------
+# Test Execution
+# ---------------------------------------------------------------
+testRunnerCommand: npx playwright test --project=${matrix.browser}
+
+# ---------------------------------------------------------------
+# Post Steps
+# ---------------------------------------------------------------
+post:
+  - echo "Test execution completed"
+
+# ---------------------------------------------------------------
+# Artifacts Management
+# ---------------------------------------------------------------
+uploadArtefacts:
+  - name: TestReport
+    path:
+      - playwright-report/**
+  - name: TestResults
+    path:
+      - test-results/**
+
+# ---------------------------------------------------------------
+# Environment Variables
+# ---------------------------------------------------------------
+env:
+  TEST_WEBSITE: https://www.testmuai.com/selenium-playground/
+  TEST_NAME: Test User
+  TEST_COMPANY: Test Company
+  TEST_ADDRESS1: 123 Main Street
+  TEST_CITY: San Francisco
+  TEST_STATE: CA
+  TEST_ZIP: "94102"
+  BROWSER: ${matrix.browser}
+  PLAYWRIGHT_HTML_OPEN: never
+  CI: "true"
+
+# ---------------------------------------------------------------
+# Secret Management
+# ---------------------------------------------------------------
+secrets:
+  - TEST_EMAIL
+  - TEST_PASSWORD

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.vs/
+.hyperexecute/
+hyperexecute-cli.log
+hyperexecute-code-*.zip
+hyperexecute.exe
+.updatedhyperexecute.yaml
+.env
+.env.local
+.DS_Store

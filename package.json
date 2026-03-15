@@ -1,0 +1,26 @@
+{
+  "name": "playwright-102-typescript",
+  "version": "1.0.0",
+  "description": "Playwright 102 Assessment - TypeScript Version",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "codegen": "playwright codegen https://www.testmuai.com/selenium-playground/"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "eslint": "^10.0.3",
+    "typescript": "^5.3.3"
+  }
+}
