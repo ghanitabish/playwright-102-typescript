@@ -1,4 +1,4 @@
-# Playwright 102 Assessment - TypeScript Version
+# Playwright 102 Assessment - TypeScript
 
 A TypeScript Playwright test automation project running on LambdaTest HyperExecute cloud grid.
 
